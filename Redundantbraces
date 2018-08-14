@@ -1,0 +1,20 @@
+class Solution:
+    # @param A : string
+    # @return an integer
+    def braces(self, A):
+        counter = 0
+        if '(' not in A:
+            return 0
+        listack = []
+        for ch in A:                                 #iterate each character in expression 
+            listack.append(ch)
+            if ch == ')' :                            #iterate until closing brace is not found 
+                listack.pop()
+                while listack.pop() != '(': 
+                    counter += 1                     #two cases for redundacy braces 1. immediate braces 
+                if counter  == 0 or counter == 1:    #2. no operator in braces hence counter should count alleast 3 to verify there is any operator.
+                    return 1
+
+            counter = 0
+        return 0
+        
